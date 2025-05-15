@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press to Restart Life</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1b0032, #000000);
+            color: #d3bfff;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        .headline {
+            font-size: 60px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px #9900ffaa;
+            margin-bottom: 20px;
+        }
+
+        .subline {
+            font-size: 20px;
+            font-style: italic;
+            color: #aa88ff;
+            margin-bottom: 30px;
+        }
+
+        .image-placeholder {
+            width: 260px;
+            height: 260px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid #ff00cc;
+            box-shadow: 0 0 25px #ff00ccaa;
+            margin-bottom: 30px;
+        }
+
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border: 1px dashed #aa88ff;
+            border-radius: 12px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #d8caff;
+            margin-bottom: 30px;
+        }
+
+        .quote-box p {
+            margin: 12px 0;
+        }
+
+        .restart-button {
+            padding: 18px 48px;
+            font-size: 22px;
+            background: transparent;
+            color: #ff00cc;
+            border: 2px solid #ff00cc;
+            border-radius: 40px;
+            text-decoration: none;
+            box-shadow: 0 0 20px #ff00ccaa;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .restart-button:hover {
+            background: #ff00cc22;
+            transform: scale(1.05);
+        }
+
+        #countdown {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 30px;
+            color: #fff;
+            display: none;
+            text-shadow: 0 0 20px #ff00cc;
+        }
+
+        .footer-tag {
+            margin-top: 60px;
+            font-size: 12px;
+            color: #644b99;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="headline">Press to Restart Life</div>
+
+        <div class="subline">⟳ Just one click. Just one new beginning.</div>
+
+        <!-- Image Placeholder -->
+        <img src="press.png" alt="Your Image Here" class="image-placeholder" />
+
+        <div class="quote-box">
+            <p>&gt; Life.exe not responding... consider a soft reboot.</p>
+            <p>&gt; Memory full. Identity blurry. Choices looping.</p>
+            <p>&gt; Sometimes you don't need a change—you need a restart.</p>
+            <p>&gt; A new seed. A different timeline. A cleaner codebase.</p>
+        </div>
+
+        <button class="restart-button" onclick="startRestart()">⟳ PRESS TO RESTART</button>
+
+        <div id="countdown">Restarting in 3...</div>
+
+        <div class="footer-tag">System Idle | v0.0.404 | Reality Not Found</div>
+    </div>
+
+    <script>
+        function startRestart() {
+            const button = document.querySelector('.restart-button');
+            const countdown = document.getElementById('countdown');
+            button.style.display = 'none';
+            countdown.style.display = 'block';
+            let timeLeft = 3;
+
+            const interval = setInterval(() => {
+                if (timeLeft > 1) {
+                    timeLeft--;
+                    countdown.textContent = `Restarting in ${timeLeft}...`;
+                } else {
+                    clearInterval(interval);
+                    countdown.textContent = `🧠 System Rebooted. Welcome back.`;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
